@@ -1,7 +1,7 @@
 {
-  "name": "psrp-staff-utilities",
+  "name": "WCRP-staff-utilities",
   "version": "1.1.1",
-  "description": "Advanced multi-guild PSRP staff utilities Discord bot.",
+  "description": "Advanced multi-guild WCRP staff utilities Discord bot.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"

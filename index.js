@@ -229,7 +229,7 @@ async function sendLog(guild, message) {
   const chId = gid(guild.id).settings.logChannelId;
   if (!chId) return;
   const ch = await guild.channels.fetch(chId).catch(()=>null);
-  if (ch?.isTextBased()) await ch.send({ embeds:[embed('PSRP Staff Utilities', message, 0x5865f2)] }).catch(()=>null);
+  if (ch?.isTextBased()) await ch.send({ embeds:[embed('WCRP Staff Utilities', message, 0x5865f2)] }).catch(()=>null);
 }
 
 async function syncSharedRoles(client) {
@@ -256,7 +256,7 @@ async function syncSharedRoles(client) {
         for (const name of matchingNames) {
           const role = roleMap.get(name);
           if (role && !destMember.roles.cache.has(role.id) && role.editable) {
-            await destMember.roles.add(role, 'PSRP shared rank-role sync').catch(() => null);
+            await destMember.roles.add(role, 'WCRP shared rank-role sync').catch(() => null);
           }
         }
       }
@@ -276,7 +276,7 @@ async function syncMemberSharedRoles(client, member) {
       if (!sourceMember.roles.cache.some(r => r.name === roleName)) continue;
       let destRole = member.guild.roles.cache.find(r => r.name === roleName);
       if (destRole?.editable && !member.roles.cache.has(destRole.id)) {
-        await member.roles.add(destRole, 'PSRP shared rank-role sync').catch(() => null);
+        await member.roles.add(destRole, 'WCRP shared rank-role sync').catch(() => null);
       }
     }
   }
@@ -493,7 +493,7 @@ function buildTmodEligibilityEmbed(guild, target, userRecord, member=null, statu
   const passed = Boolean(statusText?.includes('INTERVIEW PASSED') || statusText?.includes('PROMOTED'));
   const status = statusText || (eligible ? '⏳ **PENDING INTERVIEW**' : '❌ **NOT ELIGIBLE**');
   const e = new EmbedBuilder()
-    .setAuthor({ name:'PSRP Staff Utilities', iconURL:guild.client.user.displayAvatarURL() })
+    .setAuthor({ name:'WCRP Staff Utilities', iconURL:guild.client.user.displayAvatarURL() })
     .setTitle(passed ? '✅ Trial Moderator Promoted!' : '🎯 Trial Mod Promotion')
     .setDescription(passed
       ? `**${target.username}** has passed the Trial Moderator interview and is now **${MODERATOR_RANK}**.`
@@ -507,7 +507,7 @@ function buildTmodEligibilityEmbed(guild, target, userRecord, member=null, statu
       { name:'⚠️ Strike Check', value:strikes===0 ? '✅ No active strikes' : `❌ ${strikes} active strike${strikes===1?'':'s'}`, inline:true },
       { name:'📌 Requirement', value:`**2+ hours** • **No active strikes** • **Administrator+ interview required**`, inline:true }
     )
-    .setFooter({ text:`PSRP Staff Utilities • ${guild.name}` })
+    .setFooter({ text:`WCRP Staff Utilities • ${guild.name}` })
     .setTimestamp();
   if (passed && interviewBy) {
     e.addFields({ name:'👨‍💼 Interview Completed By', value:`<@${interviewBy}>`, inline:true });

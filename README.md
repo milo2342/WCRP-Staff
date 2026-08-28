@@ -1,4 +1,4 @@
-# PSRP Staff Utilities — Existing Roles Only
+# WCRP Staff Utilities — Existing Roles Only
 
 This build never creates staff/rank roles or the RTO Suspended role automatically.
 
